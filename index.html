@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flat stucture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+
+    <template id="h1">
+        <!--#level 1-->
+        <h1 data-zview="1" id="À-propos-delectron"><a href="https://electronjs.org/docs/all#%C3%80-propos-delectron">À propos d'Electron</a><a class="header-link" href="https://electronjs.org/docs/all#%C3%80-propos-delectron" title="Permalink"><span class="octicon octicon-link"></span></a><a class="header-link" href="#À-propos-delectron" title="Permalink"><span class="octicon octicon-link"></span></a></h1>
+        <!--#level 2-->
+        <p data-zview="2"><a href="https://electronjs.org/">Electron</a> est une librairie open source développé par GitHub pour créer des applications desktop cross-platform avec HTML, CSS et JavaScript. C'est en combinant <a href="https://www.chromium.org/Home">Chromium</a> et <a href="https://nodejs.org/">Node.js</a> en un seul runtime qu'Electron accomplit cette tâche. Ainsi les applications peuvent être empaquetées pour Mac, Windows et Linux.</p>
+        <p data-zview="2">Electron débute en 2013 en tant que framework sur lequel <a href="https://atom.io/">Atom</a>, l'éditeur de texte de GitHub, se base. Depuis, les deux ont été mis en open source au Printemps 2014.</p>
+        <p data-zview="2">C’est désormais un outil populaire utilisé par les développeurs open source, startups et entreprises établies. <a href="https://electronjs.org/apps">Voir qui utilise Electron</a>.</p>
+        <p data-zview="2">Lire la suite pour en savoir plus sur les contributeurs et les releases d'Electron ou pour commencer à développer avec Electron dans le <a href="https://electronjs.org/docs/tutorial/quick-start">Guide Démarrage Rapide</a>.</p>
+    </template>
+
+    <template id="h2">
+        <!--#level 2-->
+        <h2 data-zview="2" id="méthodes"><a href="https://electronjs.org/docs/all#m%C3%A9thodes">Méthodes</a><a class="header-link" href="https://electronjs.org/docs/all#m%C3%A9thodes" title="Permalink"><span class="octicon octicon-link"></span></a><a class="header-link" href="#méthodes" title="Permalink"><span class="octicon octicon-link"></span></a></h2>
+        <!--#level 3-->
+        <p data-zview="3">L'objet <code>app</code> dispose des méthodes suivantes :</p>
+        <p data-zview="3"><strong>Remarque :</strong> Certaines méthodes sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.</p>
+    </template>
+
+    <template id="content">
+        <!--#level 3-->
+        <h3 data-zview="3"><a href="https://electronjs.org/docs/all#appisdefaultprotocolclientprotocol-path-args-macos-windows"><code>app.isDefaultProtocolClient(protocol[, path, args])</code> <em class="platform-label">macOS</em> <em class="platform-label">Windows</em></a></h3>
+        <!--#level 4-->
+        <ul data-zview="4">
+            <li><code>protocol</code> String - The name of your protocol, without <code>://</code>.</li>
+            <li><code>path</code> String (optional) <em class="platform-label">Windows</em> - Defaults to <code>process.execPath</code></li>
+            <li><code>args</code> String<a href="https://electronjs.org/docs/api/optional"></a> <em class="platform-label">Windows</em> - Defaults to an empty array</li>
+        </ul>
+        <p data-zview="4">Retourne <code>Boolean</code></p>
+        <p data-zview="4">This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.</p>
+        <p data-zview="4"><strong>Note:</strong> On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking <code>~/Library/Preferences/com.apple.LaunchServices.plist</code> on the macOS machine. Please refer to <a href="https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme">Apple's documentation</a> for details.</p>
+        <p data-zview="4">The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.</p> 
+    </template>
+
+    <section id="dest"></section>
+
+    <script>
+        
+        var th1 = document.getElementById('h1').content
+        var th2 = document.getElementById('h2').content
+        var tct = document.getElementById('content').content
+        var dest = document.getElementById('dest')
+
+        for (var k = 0; k != 10; k++)
+        {
+            dest.appendChild(th1.cloneNode(true))
+
+            var div1 = document.createElement('div')
+            for (var i = 0; i != 10; i++)
+            {
+                div1.appendChild(th2.cloneNode(true))
+                var div2 = document.createElement('div')
+                for (var j = 0; j != 10; j++)
+                {
+                    div2.appendChild(tct.cloneNode(true))
+                }
+                div1.appendChild(div2)
+            }
+            dest.appendChild(div1)
+        }
+
+    </script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "sourceMap": true,
+        "outFile": "build/index.js",
+        "lib": [ "dom", "es2015" ],
+        "downlevelIteration": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ],
+    "files": [
+        "src/index.ts"
+    ]
+}
